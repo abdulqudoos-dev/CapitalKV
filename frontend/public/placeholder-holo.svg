@@ -1,0 +1,57 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ffff" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#8000ff" stop-opacity="0.2" />
+    </linearGradient>
+
+    <!-- Scanline pattern -->
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="rgba(0,255,255,0.05)" />
+    </pattern>
+
+    <!-- Outer glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGradient)" />
+  <rect width="800" height="600" fill="url(#scanlines)" />
+
+  <!-- Frame -->
+  <rect
+    x="30"
+    y="30"
+    width="740"
+    height="540"
+    rx="20"
+    ry="20"
+    fill="none"
+    stroke="#00ffff"
+    stroke-width="2"
+    filter="url(#glow)"
+    opacity="0.6"
+  />
+
+  <!-- Text -->
+  <text
+    x="50%"
+    y="50%"
+    dominant-baseline="middle"
+    text-anchor="middle"
+    font-family="Orbitron, sans-serif"
+    font-size="36"
+    fill="#00ffff"
+    opacity="0.8"
+    filter="url(#glow)"
+  >
+    Hologram Preview
+  </text>
+</svg>
